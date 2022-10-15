@@ -1,0 +1,9 @@
+Selecting title and minimum revenue from a list of movies contained in a movie table, say we want to know the lowest revenue 
+on the movies based on the original language they were created in.
+
+SELECT title, MIN(revenue), original_language
+FROM movies
+GROUP BY original_language
+LIMIT 35
+
+Same thing can be done for MAX
