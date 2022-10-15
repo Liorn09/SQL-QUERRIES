@@ -7,3 +7,15 @@ GROUP BY original_language
 LIMIT 35
 
 Same thing can be done for MAX
+
+
+In this particular querry, I was trying to find the total number of movies produced by a production company called 'Pixar Animation Studios'
+Two other tables where provided which included production company details with a table that mapped them to the movies table
+Below was the querry I used;
+
+SELECT pn.production_company_name, count(m.movie_id) AS "Count of movies"
+FROM productioncompanies pn, productioncompanymap pm, movies m
+WHERE m.movie_id = pm.movie_id
+    AND pm.production_company_id = pn.production_company_id
+        AND pn.production_company_name= 'Pixar Animation Studios'
+GROUP BY pn.production_company_name, pm.production_company_id
